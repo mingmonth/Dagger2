@@ -13,6 +13,7 @@ import yskim.sample.daggerpractice.BaseApplication;
         modules = {
                 AndroidSupportInjectionModule.class,
                 ActivityBuildersModule.class,
+                AppModule.class,
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
