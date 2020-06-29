@@ -13,10 +13,22 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import yskim.sample.daggerpractice.R;
+import yskim.sample.daggerpractice.util.Constants;
 
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    static Retrofit provideRetoritInstance() {
+        return new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     @Singleton
     @Provides

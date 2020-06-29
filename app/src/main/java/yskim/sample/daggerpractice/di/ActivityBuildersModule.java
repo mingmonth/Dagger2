@@ -8,6 +8,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.ContributesAndroidInjector;
 import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
+import yskim.sample.daggerpractice.di.auth.AuthModule;
 import yskim.sample.daggerpractice.di.auth.AuthViewModelsModule;
 import yskim.sample.daggerpractice.ui.auth.AuthActivity;
 
@@ -15,7 +16,7 @@ import yskim.sample.daggerpractice.ui.auth.AuthActivity;
 public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(
-            modules = {AuthViewModelsModule.class}
+            modules = {AuthViewModelsModule.class, AuthModule.class}
     )
     abstract AuthActivity contributeAuthActivity();
 
