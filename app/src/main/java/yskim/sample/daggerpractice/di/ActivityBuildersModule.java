@@ -10,6 +10,7 @@ import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 import yskim.sample.daggerpractice.di.auth.AuthModule;
 import yskim.sample.daggerpractice.di.auth.AuthViewModelsModule;
+import yskim.sample.daggerpractice.di.main.MainFragmentBuildersModule;
 import yskim.sample.daggerpractice.ui.auth.AuthActivity;
 import yskim.sample.daggerpractice.ui.main.MainActivity;
 
@@ -21,7 +22,9 @@ public abstract class ActivityBuildersModule {
     )
     abstract AuthActivity contributeAuthActivity();
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+            modules = {MainFragmentBuildersModule.class}
+    )
     abstract MainActivity contributeMainActivity();
 
 //    @Binds
