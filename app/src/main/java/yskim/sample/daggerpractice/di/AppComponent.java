@@ -10,6 +10,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 //import yskim.sample.daggerpractice.AuthActivity;
 import yskim.sample.daggerpractice.BaseApplication;
+import yskim.sample.daggerpractice.SessionManager;
 
 @Singleton
 @Component(
@@ -25,6 +26,8 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
 //    void inject(AuthActivity activity);
 
 //    ActivityBuildersModule.AuthActivitySubcomponent.Factory authSub();
+
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder {
