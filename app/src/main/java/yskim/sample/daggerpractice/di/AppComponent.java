@@ -24,6 +24,8 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
 
 //    void inject(AuthActivity activity);
 
+//    ActivityBuildersModule.AuthActivitySubcomponent.Factory authSub();
+
     @Component.Builder
     interface Builder {
 
