@@ -11,6 +11,7 @@ import dagger.multibindings.IntoMap;
 import yskim.sample.daggerpractice.di.auth.AuthModule;
 import yskim.sample.daggerpractice.di.auth.AuthViewModelsModule;
 import yskim.sample.daggerpractice.ui.auth.AuthActivity;
+import yskim.sample.daggerpractice.ui.main.MainActivity;
 
 @Module
 public abstract class ActivityBuildersModule {
@@ -19,6 +20,9 @@ public abstract class ActivityBuildersModule {
             modules = {AuthViewModelsModule.class, AuthModule.class}
     )
     abstract AuthActivity contributeAuthActivity();
+
+    @ContributesAndroidInjector
+    abstract MainActivity contributeMainActivity();
 
 //    @Binds
 //    @IntoMap

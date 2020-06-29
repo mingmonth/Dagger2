@@ -1,5 +1,6 @@
 package yskim.sample.daggerpractice.ui.auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 import yskim.sample.daggerpractice.R;
 import yskim.sample.daggerpractice.di.models.User;
+import yskim.sample.daggerpractice.ui.main.MainActivity;
 import yskim.sample.daggerpractice.viewmodels.ViewModelProviderFactory;
 
 public class AuthActivity extends DaggerAppCompatActivity implements View.OnClickListener{
@@ -78,11 +80,13 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         case AUTHENTICATED:
                             showProgressBar(false);
                             Log.d(TAG, "onChanged: LOGIN SUCCESS: " + userAuthResource.data.getEmail());
+                            onLoginSuccess();
                             break;
                         case ERROR:
                             showProgressBar(false);
-                            Toast.makeText(AuthActivity.this, userAuthResource.message
-                                    + "\nDid you enter a number between 1 and 10?", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "onChanged: " + userAuthResource.message);
+                            /*Toast.makeText(AuthActivity.this, userAuthResource.message
+                                    + "\nDid you enter a number between 1 and 10?", Toast.LENGTH_SHORT).show();*/
                             break;
                         case NOT_AUTHENTICATED:
                             showProgressBar(false);
@@ -99,6 +103,12 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
 //                }
 //            }
 //        });
+    }
+
+    private void onLoginSuccess() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void setLogo() {
