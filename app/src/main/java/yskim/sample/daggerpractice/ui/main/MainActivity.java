@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import yskim.sample.daggerpractice.BaseActivity;
 import yskim.sample.daggerpractice.R;
-import yskim.sample.daggerpractice.ui.profile.ProfileFragment;
+import yskim.sample.daggerpractice.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
 
