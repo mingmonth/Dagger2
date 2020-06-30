@@ -6,6 +6,7 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
 import yskim.sample.daggerpractice.di.ViewModelKey;
+import yskim.sample.daggerpractice.ui.main.posts.PostsViewModel;
 import yskim.sample.daggerpractice.ui.main.profile.ProfileViewModel;
 
 @Module
@@ -15,4 +16,9 @@ public abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel.class)
     public abstract ViewModel bindProfileViewModel(ProfileViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostsViewModel.class)
+    public abstract ViewModel bindPostsViewModel(PostsViewModel viewModel);
 }
