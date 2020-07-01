@@ -11,7 +11,7 @@ import yskim.sample.daggerpractice.viewmodels.ViewModelProviderFactory;
 public abstract class ViewModelFactoryModule {
 
     @Binds
-    public abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelProviderFactory modelProviderFactory);
+    public abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelProviderFactory viewModelFactory);
 
 //    @Provides
 //    static ViewModelProvider.Factory bindfactory(ViewModelProviderFactory factory) {

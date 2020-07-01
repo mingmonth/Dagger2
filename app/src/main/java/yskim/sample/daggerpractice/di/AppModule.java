@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -17,6 +18,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import yskim.sample.daggerpractice.R;
+import yskim.sample.daggerpractice.di.models.User;
 import yskim.sample.daggerpractice.util.Constants;
 
 @Module
@@ -51,6 +53,13 @@ public class AppModule {
     @Provides
     static Drawable provideAppDrawable(Application application) {
         return ContextCompat.getDrawable(application, R.drawable.logo);
+    }
+
+    @Singleton
+    @Provides
+    @Named("app_user")
+    static User someUser() {
+        return new User();
     }
 
 }

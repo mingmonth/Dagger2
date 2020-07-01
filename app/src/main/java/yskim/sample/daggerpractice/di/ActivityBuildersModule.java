@@ -9,9 +9,11 @@ import dagger.android.ContributesAndroidInjector;
 import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 import yskim.sample.daggerpractice.di.auth.AuthModule;
+import yskim.sample.daggerpractice.di.auth.AuthScope;
 import yskim.sample.daggerpractice.di.auth.AuthViewModelsModule;
 import yskim.sample.daggerpractice.di.main.MainFragmentBuildersModule;
 import yskim.sample.daggerpractice.di.main.MainModule;
+import yskim.sample.daggerpractice.di.main.MainScope;
 import yskim.sample.daggerpractice.di.main.MainViewModelModule;
 import yskim.sample.daggerpractice.ui.auth.AuthActivity;
 import yskim.sample.daggerpractice.ui.main.MainActivity;
@@ -19,11 +21,13 @@ import yskim.sample.daggerpractice.ui.main.MainActivity;
 @Module
 public abstract class ActivityBuildersModule {
 
+    @AuthScope
     @ContributesAndroidInjector(
             modules = {AuthViewModelsModule.class, AuthModule.class}
     )
     abstract AuthActivity contributeAuthActivity();
 
+    @MainScope
     @ContributesAndroidInjector(
             modules = {
                     MainFragmentBuildersModule.class,

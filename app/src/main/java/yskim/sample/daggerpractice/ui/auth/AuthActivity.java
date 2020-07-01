@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.bumptech.glide.RequestManager;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import dagger.android.support.DaggerAppCompatActivity;
 import yskim.sample.daggerpractice.R;
@@ -43,6 +44,14 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     @Inject
     RequestManager requestManager;
 
+    @Inject
+    @Named("app_user")
+    User userNumber1;
+
+    @Inject
+    @Named("auth_user")
+    User userNumber2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +67,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
         setLogo();
 
         subscribeObservers();
+
+        Log.d(TAG, "onCreate: user1: " + userNumber1);
+        Log.d(TAG, "onCreate: user2: " + userNumber2);
     }
 
     private void showProgressBar(boolean isVisible) {
